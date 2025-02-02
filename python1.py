@@ -16,3 +16,30 @@ PER = 15.79
 print(시가총액, type(시가총액))
 print(현재가, type(현재가))
 print(PER, type(PER))
+
+# 3. 변수 s와 t에는 각각 문자열이 바인딩 되어있습니다.
+
+# >> s = "hello"
+# >> t = "python"
+# 두 변수를 이용하여 아래와 같이 출력해보세요.
+# 실행 예: hello! python
+s = "hello"
+t = "python"
+print(s + "! " + t)
+print(s + "!", t)
+# python은 print 안에 ,를 쓰면 띄어쓰기가 된다
+
+# 4. letters가 바인딩하는 문자열에서 첫번째와 세번째 문자를 출력하세요.
+letters = 'python'
+print(letters[0], letters[2])
+
+# 5. 자동차 번호가 다음과 같을 때 뒤에 4자리만 출력하세요.
+# 실행 예: 2210
+license_plate = "24가 2210"
+print(license_plate[-4:])
+
+# 6. 아래의 문자열에서 '홀' 만 출력하세요
+# 실행 예: 홀홀홀
+string = "홀짝홀짝홀짝"
+print(string[::2])
+# 슬라이싱할 때 `시작인덱스:끝인덱스:오프셋`을 지정할 수 있습니다.
