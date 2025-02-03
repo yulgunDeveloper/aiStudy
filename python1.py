@@ -162,4 +162,113 @@ print(movie_rank)
 movie_rank.insert(1, "슈퍼맨")
 print(movie_rank)
 
-# 054부터 ㄱㄱ
+# 27. movie_rank 리스트에서 '럭키'를 삭제하라.
+movie_rank = ['닥터 스트레인지', '슈퍼맨', '스플릿', '럭키', '배트맨']
+# movie_rank.remove('럭키')
+del movie_rank[3]
+print(movie_rank)
+
+# 28. movie_rank 리스트에서 '스플릿' 과 '배트맨'을 를 삭제하라.
+movie_rank = ['닥터 스트레인지', '슈퍼맨', '스플릿', '배트맨']
+del movie_rank[2]
+del movie_rank[2]
+print(movie_rank)
+
+# 29. lang1과 lang2 리스트가 있을 때 lang1과 lang2의 원소를 모두 갖고 있는 langs 리스트를 만들어라.
+lang1 = ["C", "C++", "JAVA"]
+lang2 = ["Python", "Go", "C#"]
+langs = lang1 + lang2
+print(langs)
+
+# 30. 다음 리스트에서 최댓값과 최솟값을 출력하라. (힌트: min(), max() 함수 사용)
+nums = [1, 2, 3, 4, 5, 6, 7]
+print("min: %d" % (min(nums)))
+print(f"max: {max(nums)}")
+# print("min: ", min(nums))
+
+# 31. 다음 리스트의 합을 출력하라.
+nums = [1, 2, 3, 4, 5]
+print(sum(nums))
+
+# 32. 다음 리스트에 저장된 데이터의 개수를 화면에 구하라.
+cook = ["피자", "김밥", "만두", "양념치킨", "족발", "피자", "김치만두", "쫄면", "소시지", "라면", "팥빙수", "김치전"]
+print(len(cook))
+
+# 33. 다음 리스트의 평균을 출력하라.
+nums = [1, 2, 3, 4, 5]
+averange = sum(nums) / len(cook)
+print(averange)
+
+# 34. price 변수에는 날짜와 종가 정보가 저장돼 있다. 
+# 날짜 정보를 제외하고 가격 정보만을 출력하라. (힌트 : 슬라이싱)
+price = ['20180728', 100, 130, 140, 150, 160, 170]
+print(price[1:])
+
+# 35. 슬라이싱을 사용해서 홀수만 출력하라.
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(nums[::2])
+
+# 36. 슬라이싱을 사용해서 짝수만 출력하라.
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(nums[1::2])
+
+# 37. 슬라이싱을 사용해서 리스트의 숫자를 역 방향으로 출력하라.
+nums = [1, 2, 3, 4, 5]
+# nums.reverse()
+print(nums[::-1])
+
+# 38. interest 리스트에는 아래의 데이터가 바인딩되어 있다.
+interest = ['삼성전자', 'LG전자', 'Naver']
+# interest 리스트를 사용하여 아래와 같이 화면에 출력하라.
+# 출력 예시: 삼성전자 Naver
+print(interest[0], interest[2])
+
+# 39. interest 리스트에는 아래의 데이터가 바인딩되어 있다.
+interest = ['삼성전자', 'LG전자', 'Naver', 'SK하이닉스', '미래에셋대우']
+# interest 리스트를 사용하여 아래와 같이 화면에 출력하라.
+# 출력 예시: 삼성전자 LG전자 Naver SK하이닉스 미래에셋대우
+print(" ".join(interest)) # 어렵다...
+
+# 40. interest 리스트에는 아래의 데이터가 바인딩되어 있다.
+interest = ['삼성전자', 'LG전자', 'Naver', 'SK하이닉스', '미래에셋대우']
+# 출력 예시: 삼성전자/LG전자/Naver/SK하이닉스/미래에셋대우
+print("/".join(interest))
+
+print("\n".join(interest))
+
+# 41. 회사 이름이 슬래시 ('/')로 구분되어 하나의 문자열로 저장되어 있다.
+string = "삼성전자/LG전자/Naver"
+# 이를 interest 이름의 리스트로 분리 저장하라.
+interest = string.split('/')
+print(interest)
+
+# 42. 리스트에 있는 값을 오름차순으로 정렬하세요.
+data = [2, 4, 3, 1, 5, 10, 9]
+data.sort()
+# data2 = sorted(data)
+print(data)
+# print(data2)
+
+# 43. my_variable 이름의 비어있는 튜플을 만들라.
+my_variable = ()
+
+# 44. 2016년 11월 영화 예매 순위 기준 top3는 다음과 같다. 
+# 영화 제목을 movie_rank 이름의 튜플에 저장하라. (순위 정보는 저장하지 않는다.)
+movie_rank = ('닥터 스트레인지', '스플릿', '럭키')
+print(movie_rank)
+
+# 45. 숫자 1 이 저장된 튜플을 생성하라.
+tup = (1, )
+print(type(tup))
+# 리스트는 내용을 바꿀 수 있고 튜플은 내용 변경 불가
+# 원칙적으로 튜플은 괄호와 함께 데이터를 정의해야 하지만, 사용자 편의를 위해 괄호 없이도 동작합니다.
+
+# 46. 다음 튜플을 리스트로 리스트를 튜플로 변환하라.
+interest = ('삼성전자', 'LG전자', 'SK Hynix')
+data = list(interest)
+data = tuple(interest)
+
+data = tuple(range(2, 100, 2)) #range 함수 2 부터 100까지 2씩 커지기
+print( data )
+
+# 81번 딕셔너리부터 다시
