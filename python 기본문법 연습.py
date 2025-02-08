@@ -365,6 +365,29 @@ vals = (300, 250, 400)
 result = dict(zip(keys, vals))
 print(result)
 
+# 57. date와 close_price 두 개의 리스트를 close_table 이름의 딕셔너리로 생성하라.
+date = ['09/05', '09/06', '09/07', '09/08', '09/09']
+close_price = [10500, 10300, 10100, 10800, 11000]
+# 실행 예시:
+# >> print(close_table) {'09/05': 10500, '09/06': 10300, '09/07': 10100, '09/08': 10800, '09/09': 11000}
+close_table = dict(zip(date, close_price))
+print(close_table)
 
 
-# 100부터 다시
+#  즉, 튜플이나 리스트는 그 자체로 zip을 통해 dict로 만들 수 있다.
+
+
+# 58. 사용자로부터 하나의 숫자를 입력받고, 입력 받은 숫자에 10을 더해 출력하라.
+# >> 숫자를 입력하세요: 30  40
+
+# a = input(">> 숫자를 입력하세요:")
+# print(int(a) + 10)
+
+# 59. 사용자로부터 하나의 숫자를 입력 받고 짝수/홀수를 판별하라.
+# >> 30 짝수
+
+user = input(">> ")
+if int(user) % 2 == 0:
+       print("짝수")
+else:
+       print("홀수")
