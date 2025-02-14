@@ -806,9 +806,184 @@ data = [
 # 2050.2870000000003
 # ...
 
+# for row in data:
+#        for col in row:
+#               print(col * 1.00014)
+
+
+# 98. 97의 결과값을 result 이름의 리스트에 1차원 배열로 저장하라.
+# >> print(result)
+# [2000.28, 3050.427, 2050.2870000000003, 1980.2772, 7501.05, 2050.2870000000003, 2050.2870000000003, ...]
+
+# result = []
+
+# for row in data:
+#        for col in row:
+#               result.append(col * 1.00014)
+# print(result)
+
+# 99. 97의 결과값을result 이름의 리스트에 2차원 배열로 저장하라. 
+# 저장 포맷은 아래와 같다. 각 행에 대한 데이터끼리 리스트에 저장되어야 한다.
+# >> print(result)
+# [
+#  [2000.28, 3050.427, 2050.2870000000003, 1980.2772],
+#  [7501.05, 2050.2870000000003, 2050.2870000000003, 1980.2772],
+#  [15452.163, 15052.107, 15552.177, 14902.086000000001]
+# ]
+
+result = []
+i = 0
 for row in data:
+       result.append([])
        for col in row:
-              print(col * 1.00014)
+              result[i].append(col * 1.00014)
+       i += 1
+print(result)
 
 
-# 193부터
+# 100. ohlc 리스트에는 시가(open), 고가 (high), 저가 (low) , 종가(close)가 날짜별로 저장돼 있다.
+# 150원보다 큰경우에만 종가를 출력하라.
+ohlc = [["open", "high", "low", "close"],
+        [100, 110, 70, 100],
+        [200, 210, 180, 190],
+        [300, 310, 300, 310]]
+# 100
+# 190
+# 310
+
+for line in ohlc[1:]:
+       if line[3] > 150:
+              print(line[3])
+
+
+# 101. ohlc 리스트에는 시가(open), 고가 (high), 저가 (low) , 종가(close)가 날짜별로 저장돼 있다. 
+# 고가와 저가의 차이를 변동폭으로 정의할 때 변동폭을 volatility 이름의 리스트에 저장하라.
+ohlc = [["open", "high", "low", "close"],
+        [100, 110, 70, 100],
+        [200, 210, 180, 190],
+        [300, 310, 300, 310]]
+# >> print(volatility)
+# [40, 30, 10]
+
+volatility = []
+
+for line in ohlc[1:]:
+       volatility.append(line[1] - line[2])
+print(volatility)
+
+# 102. 리스트에는 3일 간의 ohlc 데이터가 저장돼 있다. 종가가 시가보다 높은 날의 변동성 (고가 - 저가)을 화면에 출력하라.
+ohlc = [["open", "high", "low", "close"],
+        [100, 110, 70, 100],
+        [200, 210, 180, 190],
+        [300, 310, 300, 310]]
+
+for line in ohlc[1:]:
+       if line[3] > line[0]:
+              print(line[1] - line[2])
+
+# 103. "비트코인" 문자열을 화면에 출력하는 print_coin() 함수를 정의하라.
+# 그리고 호출하라.
+
+def print_coin():
+       print("비트코인")
+# print_coin()
+
+# 104. 하나의 문자를 입력받아 문자열 끝에 ":D" 스마일 문자열을 이어 붙여 출력하는 print_with_smile 함수를 정의하라.
+# 그리고 정의한 함수를 호출하라. 파라미터는 "안녕하세요"로 입력하라.
+def print_with_smile(문자):
+       print(문자 + ":D")
+
+print_with_smile("안녕하세요")
+
+# 105. 현재 가격을 입력 받아 상한가 (30%)를 출력하는 print_upper_price 함수를 정의하라.
+def print_upper_price(price):
+       print(price * 1.3)
+
+# 106. 두 개의 숫자를 입력받아 두 수의 합을 출력하는 print_sum 함수를 정의하라.
+def print_sum(a, b):
+       print(a + b)
+
+# 107. 세 개의 숫자를 입력받아 가장 큰수를 출력하는 print_max 함수를 정의하라. 단 if 문을 사용해서 수를 비교하라.
+def print_max(a, b, c):
+       if a >= b:
+              if b >= c:
+                     print(a)
+              else:
+                     if a >= c:
+                            print(a)
+                     else:
+                            print(c)
+       else:
+              if b >= c:
+                     print(b)
+              else:
+                     print(c)
+
+# 108. 입력된 문자열을 역순으로 출력하는 print_reverse 함수를 정의하라.
+
+def print_reverse(string):
+       print(string[::-1])
+
+print_reverse("python")
+
+# 109.성적 리스트를 입력 받아 평균을 출력하는 print_score 함수를 정의하라.
+def print_score(list):
+       print(sum(list) / len(list))
+print_score ([1, 2, 3])
+
+# 110. 하나의 리스트를 입력받아 짝수만 화면에 출력하는 print_even 함수를 정의하라.
+
+def print_even(list):
+       for n in list:
+              if n % 2 == 0:
+                     print(n) 
+
+print_even([1, 3, 2, 10, 12, 11, 15])
+
+
+# 111. 하나의 딕셔너리를 입력받아 딕셔너리의 key 값을 화면에 출력하는 print_keys 함수를 정의하라.
+
+def print_keys(dictionary):
+       keys = dictionary.keys()
+       for key in keys:
+              print(key)
+
+print_keys({"이름":"김말똥", "나이":30, "성별":0})
+
+
+# 112. 입력 문자열을 한 줄에 다섯글자씩 출력하는 print_5xn(string) 함수를 작성하라.
+
+def print_5xn(string):
+       str_len = len(string)
+       횟수 = int(str_len / 5) + str_len % 5
+       start = 0
+       end = 5
+       for n in range(횟수):
+              print(string[start:end])
+              start = (n+1) * 5
+              end *= (n+2)
+
+
+print_5xn("아이엠어보이유알어걸")
+
+# 113. 문자열을 입력받아 각 문자들로 구성된 리스트로 반환하는 make_list 함수를 정의하라.
+# make_list("abcd")
+# ['a', 'b', 'c', 'd']
+
+def make_list (string) :
+    return list(string)
+
+# 114. 숫자로 구성된 하나의 리스트를 입력받아, 짝수들을 추출하여 리스트로 반환하는 pickup_even 함수를 구현하라.
+# pickup_even([3, 4, 5, 6, 7, 8])
+# [4, 6, 8]
+
+def pickup_even(list):
+       result = []
+       for num in list:
+              if num % 2 == 0:
+                     result.append(num)
+       return result
+
+pickup_even([3, 4, 5, 6, 7, 8])
+
+# 241번 모듈부터 시작
