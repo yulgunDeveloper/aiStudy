@@ -986,4 +986,164 @@ def pickup_even(list):
 
 pickup_even([3, 4, 5, 6, 7, 8])
 
-# 241번 모듈부터 시작
+
+# 115. datetime 모듈을 사용해서 현재 시간을 화면에 출력해보세요.
+import datetime
+
+now = datetime.datetime.now()
+print(now)
+
+# 116. datetime 모듈의 now 함수의 리턴 값의 타입을 화면에 출력해보세요.
+print(type(now))
+
+# 117. datetime 모듈의 timedelta를 사용해서 오늘로부터 5일, 4일, 3일, 2일, 1일 전의 날짜를 화면에 출력해보세요.
+
+# timedelta를 사용하여 날짜 계산
+for i in range(5, 0, -1):
+    date = now - datetime.timedelta(days=i)
+    print(f"{i}일 전: {date.strftime('%Y-%m-%d')}")
+
+# 118. time 모듈, datetime 모듈을 사용해서 1초에 한 번 현재 시간을 출력하는 코드를 작성하세요.
+import time
+
+# while True:
+#        time.sleep(1)
+#        now = datetime.datetime.now()
+#        print(now)
+
+# 119. os 모듈의 getcwd 함수를 호출하여 현재 디렉터리의 경로를 화면에 출력해보세요.
+
+from os import getcwd
+where = getcwd()
+print(where)
+
+# 120. numpy 모듈의 arange 함수를 사용해서 0.0 부터 5.0까지 0.1씩 증가하는 값을 화면에 출력해보세요.
+
+# import numpy
+
+# for i in numpy.arange(0, 5, 0.1):
+#        print(i)
+
+# 121. 사람 (Human) 클래스의 인스턴스를 "생성" 하고 이를 areum 변수로 바인딩해보세요.
+# 그리고 사람 (Human) 클래스에 "응애응애"를 출력하는 생성자를 추가하세요.
+
+class Human:
+       def __init__(self):
+              print("응애응애")
+
+areum = Human()
+
+# 122. 사람 (Human) 클래스에 (이름, 나이, 성별)을 받는 생성자를 추가하세요.
+class Human:
+       def __init__(self, 이름, 나이, 성별):
+              self.name = 이름
+              self.age = 나이
+              self.gender = 성별
+
+areum = Human("아름", 25, "여자")
+print(areum.gender)
+
+# 123. 사람 (Human) 클래스에서 이름, 나이, 성별을 출력하는 who() 메소드를 추가하세요.
+
+class Human:
+       def __init__(self, 이름, 나이, 성별):
+              self.name = 이름
+              self.age = 나이
+              self.gender = 성별
+
+       def who(self):
+              print(f"이름: {self.name}, 나이: {self.age}, 성별: {self.gender}")
+
+
+# 124. 사람 (Human) 클래스에 (이름, 나이, 성별)을 받는 setInfo 메소드를 추가하세요.
+
+class Human:
+       def __init__(self, 이름, 나이, 성별):
+              self.name = 이름
+              self.age = 나이
+              self.gender = 성별
+
+       def who(self):
+              print(f"이름: {self.name}, 나이: {self.age}, 성별: {self.gender}")
+
+       def setInfo(self, name, age, gender):
+              self.name = name
+              self.age = age
+              self.gender = gender
+
+
+# 125. 사람 (human) 클래스에 "나의 죽음을 알리지 말라"를 출력하는 소멸자를 추가하세요.
+
+class Human:
+       def __init__(self, 이름, 나이, 성별):
+              self.name = 이름
+              self.age = 나이
+              self.gender = 성별
+
+       def __del__(self):
+        print("나의 죽음을 알리지마라")
+
+       def who(self):
+              print(f"이름: {self.name}, 나이: {self.age}, 성별: {self.gender}")
+
+       def setInfo(self, name, age, gender):
+              self.name = name
+              self.age = age
+              self.gender = gender
+
+
+# 126. 주식 종목에 대한 정보를 저장하는 Stock 클래스를 정의해보세요.
+# Stock 클래스의 객체가 생성될 때 종목명과 종목코드를 입력 받을 수 있도록 생성자를 정의해보세요.
+# 삼성 = Stock("삼성전자", "005930")
+
+class Stock:
+    def __init__(self, 종목명, 종목코드):
+           self.종목명 = 종목명
+           self.종목코드 = 종목코드
+
+# 127. 객체에 종목명을 입력할 수 있는 set_name 메서드를 추가해보세요.
+# 그리고 객체에 종목코드를 입력할 수 있는 set_code 메서드를 추가해보세요.
+# a = Stock(None, None)
+# a.set_name("삼성전자")
+# a = Stock(None, None)
+# a.set_code("005930")
+
+class Stock:
+       def __init__(self, 종목명, 종목코드):
+              self.종목명 = 종목명
+              self.종목코드 = 종목코드
+
+       def set_name(self, 종목명):
+              self.종목명 = 종목명
+
+       def set_code(self, 종목코드):
+              self.종목코드 = 종목코드
+
+
+# 128. 종목명과 종목코드를 리턴하는 get_name, get_code 메서드를 추가하세요. 
+# 해당 메서드를 사용하여 종목명과 종목코드를 얻고 이를 출력해보세요.
+
+class Stock:
+       def __init__(self, 종목명, 종목코드):
+              self.종목명 = 종목명
+              self.종목코드 = 종목코드
+
+       def set_name(self, 종목명):
+              self.종목명 = 종목명
+
+       def set_code(self, 종목코드):
+              self.종목코드 = 종목코드
+
+       def get_name(self):
+              return self.종목명
+
+       def get_code(self):
+              return self.종목코드
+
+삼성 = Stock("삼성전자", "005930")
+
+print(삼성.get_name())
+print(삼성.get_code())
+
+
+# 266 부터 시작
