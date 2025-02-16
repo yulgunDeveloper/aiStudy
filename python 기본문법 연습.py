@@ -1146,4 +1146,114 @@ print(삼성.get_name())
 print(삼성.get_code())
 
 
-# 266 부터 시작
+# 129. 생성자에서 종목명, 종목코드, PER, PBR, 배당수익률을 입력 받을 수 있도록 생성자를 수정하세요. 
+# PER, PBR, 배당수익률은 float 타입입니다.
+
+class Stock:
+       def __init__(self, 종목명, 종목코드, PER, PBR, 배당수익률):
+              self.종목명 = 종목명
+              self.종목코드 = 종목코드
+              self.PER = PER
+              self.PBR = PBR
+              self.배당수익률 = 배당수익률
+
+       def set_name(self, 종목명):
+              self.종목명 = 종목명
+
+       def set_code(self, 종목코드):
+              self.종목코드 = 종목코드
+
+       def get_name(self):
+              return self.종목명
+
+       def get_code(self):
+              return self.종목코드
+
+# 130. 129에서 정의한 생성자를 통해 다음 정보를 갖는 객체를 생성해보세요.
+
+stock = Stock("s", "005930", 15.79, 1.33, 2.83)
+print(stock.PBR)
+
+# 131. PER, PBR, 배당수익률은 변경될 수 있는 값입니다. 
+# 이 값을 변경할 때 사용하는 set_per, set_pbr, set_dividend 메서드를 추가하세요.
+
+class Stock:
+       def __init__(self, 종목명, 종목코드, PER, PBR, 배당수익률):
+              self.종목명 = 종목명
+              self.종목코드 = 종목코드
+              self.PER = PER
+              self.PBR = PBR
+              self.배당수익률 = 배당수익률
+
+       def set_name(self, 종목명):
+              self.종목명 = 종목명
+
+       def set_code(self, 종목코드):
+              self.종목코드 = 종목코드
+
+       def set_per(self, PER):
+              self.PER = PER
+
+       def set_pbr(self, PBR):
+              self.PBR = PBR
+
+       def set_dividend(self, 배당수익률):
+              self.배당수익률 =배당수익률
+
+       def get_name(self):
+              return self.종목명
+
+       def get_code(self):
+              return self.종목코드
+
+# 132. 130에서 생성한 객체에 set_per 메서드를 호출하여 per 값을 12.75로 수정해보세요.
+stock = Stock("삼성전자", "005930", 15.79, 1.33, 2.83)
+stock.set_per(12.75)
+
+# 133. 아래의 표를 참조하여 3종목에 대해 객체를 생성하고 이를 파이썬 리스트에 저장하세요. 
+# 파이썬 리스트에 저장된 각 종목에 대해 for 루프를 통해 종목코드와 PER을 출력해보세요.
+# 종목명	종목코드	PER	PBR	배당수익률
+# 삼성전자	005930	       15.79	1.33	2.83
+# 현대차	005380	       8.70	0.35	4.27
+# LG전자	066570	       317.34	0.69	1.37
+
+stock1 = Stock("삼성전자", "005930", 15.79, 1.33, 2.83)
+stock2 = Stock("현대차", "005380", 8.70, 0.35, 4.27)
+stock3 = Stock("LG전자", "066570", 317.34, 0.69, 1.37)
+
+list = [stock1, stock2, stock3]
+
+for some in list:
+       print(some.get_code(), some.PER)
+
+# 134. 은행에 가서 계좌를 개설하면 은행이름, 예금주, 계좌번호, 잔액이 설정됩니다. 
+# Account 클래스를 생성한 후 생성자를 구현해보세요. 
+# 생성자에서는 예금주와 초기 잔액만 입력 받습니다. 
+# 은행이름은 SC은행으로 계좌번호는 3자리-2자리-6자리 형태로 랜덤하게 생성됩니다. -- 어렵다**
+
+# kim = Account("김민수", 100)
+# 은행이름: SC은행
+# 계좌번호: 111-11-111111
+del str
+
+import random
+
+class Account:
+       def __init__(self, 예금주, 초기잔액):
+              self.은행이름 = "SC은행"
+              self.예금주 = 예금주
+              self.초기잔액 = 초기잔액
+              num1 = random.randint(0, 999)
+              num2 = random.randint(0, 99)
+              num3 = random.randint(0, 999999)
+
+              num1 = str(num1).zfill(3)
+              num2 = str(num2).zfill(2)
+              num3 = str(num3).zfill(6) # 파이썬은 변수 타입이 정해져 있지 않아서 이렇게 int였다가 str로 덮어쓰기 가능 
+              self.계좌번호 = num1 + '-' + num2 + '-' + num3
+
+kim = Account("김민수", 100)
+print(kim.계좌번호)
+
+
+# 272 
