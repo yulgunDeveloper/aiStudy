@@ -1256,4 +1256,349 @@ kim = Account("김민수", 100)
 print(kim.계좌번호)
 
 
-# 272 
+# 135. 클래스 변수를 사용해서 Account 클래스로부터 생성된 계좌 객체의 개수를 저장하세요.
+
+class Account:
+       account_count = 0
+
+       def __init__(self, 예금주, 초기잔액):
+              self.은행이름 = "SC은행"
+              self.예금주 = 예금주
+              self.초기잔액 = 초기잔액
+              num1 = random.randint(0, 999)
+              num2 = random.randint(0, 99)
+              num3 = random.randint(0, 999999)
+
+              num1 = str(num1).zfill(3)
+              num2 = str(num2).zfill(2)
+              num3 = str(num3).zfill(6) # 파이썬은 변수 타입이 정해져 있지 않아서 이렇게 int였다가 str로 덮어쓰기 가능 
+              self.계좌번호 = num1 + '-' + num2 + '-' + num3
+
+              Account.account_count += 1
+
+       def get_account_num(self):
+              return self.account_count
+
+
+# 136. Account 클래스에 입금을 위한 deposit 메서드를 추가하세요. 
+# 입금은 최소 1원 이상만 가능합니다.
+
+class Account:
+       account_count = 0
+
+       def __init__(self, 예금주, 초기잔액):
+              self.은행이름 = "SC은행"
+              self.예금주 = 예금주
+              self.초기잔액 = 초기잔액
+              num1 = random.randint(0, 999)
+              num2 = random.randint(0, 99)
+              num3 = random.randint(0, 999999)
+
+              num1 = str(num1).zfill(3)
+              num2 = str(num2).zfill(2)
+              num3 = str(num3).zfill(6) # 파이썬은 변수 타입이 정해져 있지 않아서 이렇게 int였다가 str로 덮어쓰기 가능 
+              self.계좌번호 = num1 + '-' + num2 + '-' + num3
+
+              Account.account_count += 1
+
+       def get_account_num(self):
+              return self.account_count
+
+       def deposit(self, money):
+              if money >= 1:
+                     self.초기잔액 += money
+              else:
+                     print("입금은 최소 1원 이상만 가능합니다.")
+
+
+# 137. Account 클래스에 출금을 위한 withdraw 메서드를 추가하세요. 
+# 출금은 계좌의 잔고 이상으로 출금할 수는 없습니다.
+
+class Account:
+       account_count = 0
+
+       def __init__(self, 예금주, 초기잔액):
+              self.은행이름 = "SC은행"
+              self.예금주 = 예금주
+              self.초기잔액 = 초기잔액
+              num1 = random.randint(0, 999)
+              num2 = random.randint(0, 99)
+              num3 = random.randint(0, 999999)
+
+              num1 = str(num1).zfill(3)
+              num2 = str(num2).zfill(2)
+              num3 = str(num3).zfill(6) # 파이썬은 변수 타입이 정해져 있지 않아서 이렇게 int였다가 str로 덮어쓰기 가능 
+              self.계좌번호 = num1 + '-' + num2 + '-' + num3
+
+              Account.account_count += 1
+
+       def get_account_num(self):
+              return self.account_count
+
+       def deposit(self, money):
+              if money >= 1:
+                     self.초기잔액 += money
+              else:
+                     print("입금은 최소 1원 이상만 가능합니다.")
+
+       def withdraw(self, money):
+              if money <= self.초기잔액:
+                     self.초기잔액 = self.초기잔액 - money
+                     return money
+              else:
+                     print("계좌의 잔고 이상으로 출금할 수는 없습니다.")
+
+
+# k = Account("kim", 100)
+# k.deposit(100)
+# k.withdraw(90)
+# print(k.초기잔액)
+
+
+# 138. Account 인스턴스에 저장된 정보를 출력하는 display_info() 메서드를 추가하세요. 
+# 잔고는 세자리마다 쉼표를 출력하세요. -- 어렵다**
+
+class Account:
+       account_count = 0
+
+       def __init__(self, 예금주, 초기잔액):
+              self.은행이름 = "SC은행"
+              self.예금주 = 예금주
+              self.초기잔액 = 초기잔액
+              num1 = random.randint(0, 999)
+              num2 = random.randint(0, 99)
+              num3 = random.randint(0, 999999)
+
+              num1 = str(num1).zfill(3)
+              num2 = str(num2).zfill(2)
+              num3 = str(num3).zfill(6) # 파이썬은 변수 타입이 정해져 있지 않아서 이렇게 int였다가 str로 덮어쓰기 가능 
+              self.계좌번호 = num1 + '-' + num2 + '-' + num3
+
+              Account.account_count += 1
+
+       def get_account_num(self):
+              return self.account_count
+
+       def deposit(self, money):
+              if money >= 1:
+                     self.초기잔액 += money
+              else:
+                     print("입금은 최소 1원 이상만 가능합니다.")
+
+       def withdraw(self, money):
+              if money <= self.초기잔액:
+                     self.초기잔액 = self.초기잔액 - money
+                     return money
+              else:
+                     print("계좌의 잔고 이상으로 출금할 수는 없습니다.")
+
+       def display_info(self):
+              print("은행이름:", self.은행이름)
+              print("예금주:", self.예금주)
+              print("계좌번호:", self.계좌번호)
+              print("잔고:", f"{self.초기잔액:,}")
+
+p = Account("파이썬", 1000000)
+p.display_info()
+
+# 139. 입금 횟수가 5회가 될 때 잔고를 기준으로 1%의 이자가 잔고에 추가되도록 코드를 변경해보세요.
+class Account:
+       account_count = 0
+
+       def __init__(self, 예금주, 초기잔액):
+              self.은행이름 = "SC은행"
+              self.예금주 = 예금주
+              self.초기잔액 = 초기잔액
+              num1 = random.randint(0, 999)
+              num2 = random.randint(0, 99)
+              num3 = random.randint(0, 999999)
+
+              num1 = str(num1).zfill(3)
+              num2 = str(num2).zfill(2)
+              num3 = str(num3).zfill(6) # 파이썬은 변수 타입이 정해져 있지 않아서 이렇게 int였다가 str로 덮어쓰기 가능 
+              self.계좌번호 = num1 + '-' + num2 + '-' + num3
+
+              Account.account_count += 1
+              self.입금횟수 = 0
+
+       def get_account_num(self):
+              return self.account_count
+
+       def deposit(self, money):
+              if money >= 1:
+                     self.초기잔액 += money
+                     self.입금횟수 += 1
+                     if self.입금횟수 % 5 == 0:
+                            self.초기잔액 *= 1.01
+              else:
+                     print("입금은 최소 1원 이상만 가능합니다.")
+
+       def withdraw(self, money):
+              if money <= self.초기잔액:
+                     self.초기잔액 = self.초기잔액 - money
+                     return money
+              else:
+                     print("계좌의 잔고 이상으로 출금할 수는 없습니다.")
+
+       def display_info(self):
+              print("은행이름:", self.은행이름)
+              print("예금주:", self.예금주)
+              print("계좌번호:", self.계좌번호)
+              print("잔고:", f"{self.초기잔액:,}")
+
+
+m = Account("파이썬", 10000)
+m.deposit(10000)
+m.deposit(10000)
+m.deposit(10000)
+m.deposit(5000)
+m.deposit(5000)
+print(m.초기잔액)
+
+# 140. 반복문을 통해 리스트에 있는 객체를 순회하면서 잔고가 100만원 이상인 고객의 정보만 출력하세요.
+
+k = Account("KIM", 10000000)
+l = Account("LEE", 10000)
+p = Account("PARK", 10000)
+
+data = [k, l, p]
+
+for name in data:
+       if name.초기잔액 >= 1000000:
+              name.display_info()
+
+
+# 141. 다음 코드가 동작하도록 차 클래스를 정의하세요.
+# >> car = 차(2, 1000)
+# >> car.바퀴
+# 2
+# >> car.가격
+# 1000
+
+class car:
+       def __init__(self, wheel, price):
+              self.wheel = wheel #바퀴
+              self.price = price #가격
+
+# 142. 차 클래스를 상속받은 자전차 클래스를 정의하세요.
+
+class 자전차(car):
+       pass
+
+# 143. 다음 코드가 동작하도록 자전차 클래스를 정의하세요. 단 자전차 클래스는 차 클래스를 상속받습니다.
+# >> bicycle = 자전차(2, 100)
+# >> bicycle.가격
+# 100
+
+class 자전차(car):
+       def __init__(self, wheel, price):
+              self.wheel = wheel #바퀴
+              self.price = price #가격
+
+# 144. 다음 코드가 동작하도록 자전차 클래스를 정의하세요. 단 자전차 클래스는 차 클래스를 상속받습니다.
+# >> bicycle = 자전차(2, 100, "시마노")
+# >> bicycle.구동계
+# 시마노
+
+class 자전차(car):
+       def __init__(self, wheel, price, 구동계):
+              super().__init__(wheel, price)
+              self.구동계 = 구동계 #구동계
+
+
+# 145. 다음 코드가 동작하도록 차 클래스를 상속받는 자동차 클래스를 정의하세요.
+# >> car = 자동차(4, 1000)
+# >> car.정보()
+# 바퀴수 4
+# 가격 1000
+
+class 자동차(car):
+       def __init__(self, wheel, price):
+              super().__init__(wheel, price)
+
+       def 정보(self):
+              print("바퀴수", self.wheel)
+              print("가격", self.price)
+
+car = 자동차(4, 1000)
+car.정보()
+
+# 146. 다음 코드가 동작하도록 차 클래스를 수정하세요.
+# >> bicycle = 자전차(2, 100, "시마노")
+# >> bicycle.정보()
+# 바퀴수 2
+# 가격 100
+
+class car:
+       def __init__(self, wheel, price):
+              self.wheel = wheel #바퀴
+              self.price = price #가격
+
+       def 정보(self):
+              print("바퀴수", self.wheel)
+              print("가격", self.price)
+
+class 자전차(car):
+       def __init__(self, wheel, price, 구동계):
+              super().__init__(wheel, price)
+              self.구동계 = 구동계 #구동계
+
+bicycle = 자전차(2, 100, "시마노")
+bicycle.정보()
+
+# 147. 자전차의 정보() 메서드로 구동계 정보까지 출력하도록 수정해보세요.
+# >> bicycle = 자전차(2, 100, "시마노")
+# >> bicycle.정보()
+# 바퀴수 2
+# 가격 100
+# 구동계 시마노
+
+class car:
+       def __init__(self, wheel, price):
+              self.wheel = wheel #바퀴
+              self.price = price #가격
+
+       def 정보(self):
+              print("바퀴수", self.wheel)
+              print("가격", self.price)
+
+class 자전차(car):
+       def __init__(self, wheel, price, 구동계):
+              super().__init__(wheel, price)
+              self.구동계 = 구동계 #구동계
+       
+       def 정보(self):
+              super().정보()
+              print("구동계", self.구동계)
+
+bicycle = 자전차(2, 100, "시마노")
+bicycle.정보()
+
+# 148. 바탕화면에 '매수종목1.txt' 파일을 생성한 후 다음과 같이 종목코드를 파일에 써보세요.
+# f = open("C:/Users/권유림/Desktop/매수종목1.txt", mode="wt", encoding="utf-8")
+# f.write("005930\n")
+# f.write("005380\n")
+# f.write("035420")
+# f.close()
+
+# 149. 문자열 PER (Price to Earning Ratio) 값을 실수로 변환할 때 에러가 발생합니다. 
+# 예외처리를 통해 에러가 발생하는 PER은 0으로 출력하세요.
+
+per = ["10.31", "", "8.00"]
+
+for i in per:
+    try:
+       print(float(i))
+    except:
+       print(0)
+
+
+# 150. 리스트의 인덱싱에 대해 에러를 출력해보세요.
+
+data = [1, 2, 3]
+
+for i in range(5):
+       try:
+              print(data[i])
+       except IndexError as error:
+              print(error)
