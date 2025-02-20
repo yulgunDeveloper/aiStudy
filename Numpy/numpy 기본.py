@@ -85,5 +85,43 @@ print(arr_transposed)
 # 0과 100 사이의 랜덤 정수로 3x3 배열을 생성하세요.
 # 그리고 배열의 평균값을 출력하세요.
 
-arr = np.random.randint(3, 3)
+arr = np.random.randint(0, 101, size= (3, 3))
 print(np.mean(arr))
+
+# 행렬의 곱셈
+import numpy as np
+
+A = np.array([[1, 2], 
+              [3, 4]])
+B = np.array([[5, 6], 
+              [7, 8]])
+
+# Dot product 계산
+result = np.dot(A, B)  # 또는 A @ B
+print("Dot Product 결과:\n", result)
+
+# 4. 랜덤 숫자 배열 생성 후 평균, 최댓값, 최솟값 구하기
+# 1) 크기가 4×4인 랜덤 정수 배열을 생성하세요.
+# 정수 범위: 1부터 100까지
+
+import numpy as np
+
+arr = np.random.randint(1, 101, size = (4, 4))
+
+# 2) 생성한 배열의 평균값, 최댓값, 최솟값을 구하세요.
+
+print("평균값:", np.mean(arr))
+print("최댓값:", np.max(arr))
+print("최솟값:", np.min(arr))
+
+
+# 3) 배열의 각 행별 최댓값과 최솟값도 출력하세요.
+row_max = np.max(arr, axis=1)
+row_min = np.min(arr, axis=1)
+
+import numpy as np
+
+# 6x6 배열 생성 (1~100 사이의 정수)
+arr = np.random.randint(1, 101, size=(6, 6))
+mean = np.mean(arr, axis=1)
+std = np.std(arr, axis=1)
