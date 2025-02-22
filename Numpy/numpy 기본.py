@@ -125,3 +125,12 @@ import numpy as np
 arr = np.random.randint(1, 101, size=(6, 6))
 mean = np.mean(arr, axis=1)
 std = np.std(arr, axis=1)
+
+
+
+# 랜덤 숫자 배열 생성 후 평균/최댓값/최솟값 구하기
+arr = np.random.randint(1, 101, size=(3, 3))
+print(arr)
+print("평균 :", np.mean(arr))
+print("최댓값 :", np.max(arr))
+print("최솟값 :", np.min(arr))
