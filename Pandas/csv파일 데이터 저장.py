@@ -27,4 +27,6 @@ df.to_csv("data.csv", index=False)
 read_df = pd.read_csv("data.csv")
 
 filter_df = read_df[read_df['나이'] >= 25]
+# filter_df = read_df[read_df['나이'].apply(lambda x : x >= 25)]
+
 filter_df.to_csv("filtered_data.csv")
