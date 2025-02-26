@@ -101,5 +101,81 @@ exam_scores = [45, 50, 55, 65, 70, 72, 80, 85, 90, 95]
 # plt.title("공부 시간과 시험 점수 관계")
 # plt.show()
 
+# import seaborn as sns
+# import pandas as pd
+# import numpy as np
+# import matplotlib.pyplot as plt
+# import matplotlib as mpl
 
-# 내일 할 것 : Seaborn을 이용한 고급 시각화 (히트맵, KDE 플롯)
+# # 폰트 설정 (나눔고딕 사용)
+# mpl.rc('font', family='NanumGothic')
+
+# # 예제 데이터
+# data = {
+#     "키(cm)": [150, 160, 165, 170, 175],
+#     "몸무게(kg)": [50, 55, 60, 70, 75],
+#     "시험 점수": [70, 80, 85, 90, 95]
+# }
+
+# df = pd.DataFrame(data)
+
+# # 상관계수 히트맵(1에 가까울수록 → 두 변수는 강한 양의 상관관계, 0에 가까울수록 → 두 변수는 거의 관련 없음, -1에 가까울수록 → 두 변수는 강한 음의 상관관계)
+# sns.heatmap(df.corr(), annot=True, cmap="coolwarm", fmt=".2f")
+# plt.title("Feature Correlation Heatmap")
+# plt.show()
+
+# import seaborn as sns
+# import pandas as pd
+# import numpy as np
+# import matplotlib.pyplot as plt
+# import matplotlib as mpl
+
+# # 폰트 설정 (나눔고딕 사용)
+# mpl.rc('font', family='NanumGothic')
+
+# # 예제 데이터
+# data = {
+#     "키(cm)": [150, 160, 165, 170, 175],
+#     "몸무게(kg)": [50, 55, 60, 70, 75],
+#     "시험 점수": [70, 80, 85, 90, 95]
+# }
+
+# df = pd.DataFrame(data)
+
+# # KDE 플롯
+# plt.figure(figsize=(8, 6))
+# sns.kdeplot(df["키(cm)"], label="키(cm)", fill=True)
+# sns.kdeplot(df["몸무게(kg)"], label="몸무게(kg)", fill=True)
+# sns.kdeplot(df["시험 점수"], label="시험 점수", fill=True)
+
+# plt.xlabel("값")
+# plt.ylabel("밀도")
+# plt.title("KDE Plot of Features")
+# plt.legend()
+# plt.show()
+
+
+# import seaborn as sns
+# import pandas as pd
+# import matplotlib.pyplot as plt
+# import matplotlib as mpl
+
+# # 폰트 설정 (나눔고딕 사용)
+# mpl.rc('font', family='NanumGothic')
+
+# # 예제 데이터
+# data = {
+#     "시험 점수": [70, 80, 85, 90, 95, 78, 88, 92, 76, 84, 79, 81, 87, 93, 89]
+# }
+
+# df = pd.DataFrame(data)
+
+# # KDE 플롯 (시험 점수)
+# plt.figure(figsize=(8, 6))
+# sns.kdeplot(df["시험 점수"], fill=True, color="blue", linewidth=2)
+
+# plt.xlabel("시험 점수")
+# plt.ylabel("밀도")
+# plt.title("시험 점수 분포 KDE Plot")
+# plt.grid(True)  # 격자 추가
+# plt.show()
