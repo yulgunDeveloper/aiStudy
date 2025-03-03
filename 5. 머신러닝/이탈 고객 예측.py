@@ -12,3 +12,8 @@
 # 5. 테스트 데이터셋에 대해 고객이 이탈할지 여부를 예측하세요.
 # 6. 예측된 결과와 실제 이탈 여부를 비교하여 정확도를 평가하세요.
 
+import pandas as pd
+
+test_data = pd.read_csv("C:/Users/권유림/Desktop/aiStudy/5. 머신러닝/Telco Customer Churn/test.csv")
+train_data = pd.read_csv("C:/Users/권유림/Desktop/aiStudy/5. 머신러닝/Telco Customer Churn/train.csv")
+validation_data = pd.read_csv("C:/Users/권유림/Desktop/aiStudy/5. 머신러닝/Telco Customer Churn/validation.csv")
