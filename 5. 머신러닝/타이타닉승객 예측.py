@@ -42,6 +42,7 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.model_selection import GridSearchCV, train_test_split
+from sklearn.linear_model import LogisticRegression
 import xgboost as xgb
 from sklearn.metrics import accuracy_score
 
@@ -68,31 +69,12 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
 # 4. 머신러닝 모델 학습
-xgb_model = xgb.XGBClassifier(n_estimators=100, learning_rate=0.1, max_depth=3, seed=42)
+model = LogisticRegression(max_iter=100, solver='lbfgs', random_state=42)
+model.fit(X_train_scaled, y_train)
 
-
-# 하이퍼파라미터 후보 설정
-param_grid = {
-    'n_estimators': [50, 100, 200],   # 트리 개수
-    'max_depth': [3, 5, 7],           # 트리 깊이
-    'learning_rate': [0.01, 0.1, 0.3], # 학습률
-    'subsample': [0.7, 0.8, 1.0]       # 데이터 샘플링 비율
-}
-
-# GridSearchCV 설정 (교차 검증 3-Fold)
-grid_search = GridSearchCV(xgb_model, param_grid, cv=3, scoring='accuracy', n_jobs=-1)
-
-# 학습 수행 (최적의 하이퍼파라미터 찾기)
-grid_search.fit(X_train_scaled, y_train)
-
-# 최적의 하이퍼파라미터 출력
-# print("Best Parameters:", grid_search.best_params_)
-
-# 최적의 모델로 예측
-best_model = grid_search.best_estimator_
-y_pred = best_model.predict(X_test_scaled)
+y_pred = model.predict(X_test_scaled)
 
 # 정확도 평가
 accuracy = accuracy_score(y_test, y_pred)
-print(f"Optimized Model Accuracy: {accuracy:.4f}")
+print(f"Optimized Model Accuracy: {accuracy:.2f}%")
 
