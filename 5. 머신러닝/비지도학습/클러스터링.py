@@ -34,3 +34,8 @@
 
 # # 파일 경로 반환
 # file_path
+
+import pandas as pd
+
+customer_data = pd.read_csv("C:/Users/권유림/Desktop/aiStudy/customer_data.csv")
+
