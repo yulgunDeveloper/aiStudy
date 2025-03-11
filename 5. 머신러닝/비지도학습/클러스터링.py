@@ -36,6 +36,23 @@
 # file_path
 
 import pandas as pd
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
 
+# 1. 데이터 로드
 customer_data = pd.read_csv("C:/Users/권유림/Desktop/aiStudy/customer_data.csv")
+
+# 2. 필요한 특성 선택 (예: 연령, 연 소득, 총 구매 금액)
+X = customer_data[['Age', 'AnnualIncome', 'SpendingScore']]
+
+# 3. K-Means 모델 적용
+kmeans = KMeans(n_clusters=3, random_state=42)  # 3개의 그룹으로 클러스터링
+customer_data['Cluster'] = kmeans.fit_predict(X)
+
+# 4. 클러스터 시각화 (연소득 vs 총 구매 금액)
+plt.scatter(customer_data['AnnualIncome'], customer_data['SpendingScore'], c=customer_data['Cluster'], cmap='viridis')
+plt.xlabel("Annual Income")
+plt.ylabel("SpendingScore")
+plt.title("Customer Segmentation using K-Means")
+plt.show()
 
